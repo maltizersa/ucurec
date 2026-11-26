@@ -1,0 +1,331 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.min.css';
+
+/*
+ * UCUREC theme: red and gold, taken from the Urdaneta City University logo
+ * (public/images/ucu-logo.webp). Change the colors here; everything below
+ * uses these variables.
+ */
+:root {
+    --ucu-red: #c11f33;
+    --ucu-red-rgb: 193, 31, 51;
+    --ucu-red-dark: #961828;
+    --ucu-red-darker: #63101b;
+    --ucu-gold: #fdca0a;
+    --ucu-gold-rgb: 253, 202, 10;
+    --ucu-gold-light: #ffe27a;
+    --ucu-cream: #fdf9ec;
+
+    --ucurec-sidebar-width: 250px;
+
+    /* Bootstrap overrides */
+    --bs-primary: var(--ucu-red);
+    --bs-primary-rgb: var(--ucu-red-rgb);
+    --bs-link-color: var(--ucu-red);
+    --bs-link-color-rgb: var(--ucu-red-rgb);
+    --bs-link-hover-color: var(--ucu-red-dark);
+    --bs-link-hover-color-rgb: 150, 24, 40;
+    --bs-focus-ring-color: rgba(var(--ucu-gold-rgb), 0.35);
+}
+
+body {
+    background-color: var(--ucu-cream);
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+    --bs-btn-bg: var(--ucu-red);
+    --bs-btn-border-color: var(--ucu-red);
+    --bs-btn-hover-bg: var(--ucu-red-dark);
+    --bs-btn-hover-border-color: var(--ucu-red-dark);
+    --bs-btn-active-bg: var(--ucu-red-darker);
+    --bs-btn-active-border-color: var(--ucu-red-darker);
+    --bs-btn-disabled-bg: var(--ucu-red);
+    --bs-btn-disabled-border-color: var(--ucu-red);
+    --bs-btn-focus-shadow-rgb: var(--ucu-gold-rgb);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--ucu-red);
+    --bs-btn-border-color: var(--ucu-red);
+    --bs-btn-hover-bg: var(--ucu-red);
+    --bs-btn-hover-border-color: var(--ucu-red);
+    --bs-btn-active-bg: var(--ucu-red-dark);
+    --bs-btn-active-border-color: var(--ucu-red-dark);
+    --bs-btn-focus-shadow-rgb: var(--ucu-gold-rgb);
+}
+
+.btn-gold {
+    --bs-btn-color: var(--ucu-red-darker);
+    --bs-btn-bg: var(--ucu-gold);
+    --bs-btn-border-color: var(--ucu-gold);
+    --bs-btn-hover-color: var(--ucu-red-darker);
+    --bs-btn-hover-bg: var(--ucu-gold-light);
+    --bs-btn-hover-border-color: var(--ucu-gold-light);
+    --bs-btn-focus-shadow-rgb: var(--ucu-gold-rgb);
+}
+
+/* ---------- Forms ---------- */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--ucu-gold);
+    box-shadow: 0 0 0 0.25rem rgba(var(--ucu-gold-rgb), 0.3);
+}
+
+.password-toggle {
+    color: var(--bs-secondary-color);
+    background-color: #fff;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+}
+
+.password-toggle:hover,
+.password-toggle[aria-pressed="true"] {
+    color: var(--ucu-red);
+    background-color: var(--ucu-cream);
+    border-color: var(--bs-border-color);
+}
+
+.password-toggle:focus-visible {
+    border-color: var(--ucu-gold);
+    box-shadow: 0 0 0 0.25rem rgba(var(--ucu-gold-rgb), 0.3);
+}
+
+.form-check-input:checked {
+    background-color: var(--ucu-red);
+    border-color: var(--ucu-red);
+}
+
+/* ---------- Pagination ---------- */
+.pagination {
+    --bs-pagination-color: var(--ucu-red);
+    --bs-pagination-hover-color: var(--ucu-red-dark);
+    --bs-pagination-focus-color: var(--ucu-red-dark);
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(var(--ucu-gold-rgb), 0.3);
+    --bs-pagination-active-bg: var(--ucu-red);
+    --bs-pagination-active-border-color: var(--ucu-red);
+}
+
+/* ---------- App shell ---------- */
+.app-shell {
+    min-height: 100vh;
+}
+
+.app-sidebar {
+    width: var(--ucurec-sidebar-width);
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--ucu-red) 0%, var(--ucu-red-dark) 60%, var(--ucu-red-darker) 100%);
+    border-right: 4px solid var(--ucu-gold);
+}
+
+.app-sidebar .brand {
+    color: #fff;
+    border-bottom: 1px solid rgba(var(--ucu-gold-rgb), 0.45);
+}
+
+.app-sidebar .brand .brand-sub {
+    color: var(--ucu-gold-light);
+}
+
+/* The logo is red on a transparent background, so it sits on a white tile. */
+.sidebar-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 58px;
+    padding: 4px;
+    background-color: #fff;
+    border: 2px solid var(--ucu-gold);
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+}
+
+.sidebar-logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.app-sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    border-radius: 0.375rem;
+    border-left: 3px solid transparent;
+}
+
+.app-sidebar .nav-link:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-sidebar .nav-link.active {
+    color: var(--ucu-gold-light);
+    background-color: rgba(var(--ucu-gold-rgb), 0.18);
+    border-left-color: var(--ucu-gold);
+    font-weight: 600;
+}
+
+.app-sidebar .sidebar-heading {
+    color: var(--ucu-gold);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.app-sidebar .user-card {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(var(--ucu-gold-rgb), 0.35);
+}
+
+.app-sidebar .user-card .role {
+    color: var(--ucu-gold-light);
+}
+
+/* Lets wide tables scroll inside their card instead of pushing the page sideways. */
+.app-main {
+    min-width: 0;
+}
+
+.app-topbar {
+    background-color: #fff;
+    border-bottom: 3px solid var(--ucu-gold);
+}
+
+.page-title {
+    color: var(--ucu-red-dark);
+}
+
+/* ---------- Cards and tables ---------- */
+.card {
+    border-radius: 0.6rem;
+}
+
+.card-accent {
+    border-top: 4px solid var(--ucu-gold) !important;
+}
+
+.stat-card {
+    border-left: 5px solid var(--ucu-gold) !important;
+}
+
+.stat-card .stat-value {
+    color: var(--ucu-red);
+}
+
+.table > thead.table-light th {
+    background-color: var(--ucu-red);
+    color: #fff;
+    border-bottom: 3px solid var(--ucu-gold);
+    font-weight: 600;
+}
+
+.badge-main-admin {
+    width: fit-content;
+    color: var(--ucu-red-darker);
+    background-color: var(--ucu-gold);
+}
+
+/* ---------- Dashboard pie charts ---------- */
+.pie-wrap {
+    max-width: 220px;
+}
+
+.pie-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+.pie-legend li + li {
+    border-top: 1px solid #f0efec;
+}
+
+.pie-percent {
+    min-width: 3.25rem;
+    text-align: right;
+}
+
+/* ---------- Print: a clean copy of the record ---------- */
+.print-header {
+    display: none;
+}
+
+@media print {
+    body {
+        background: #fff;
+    }
+
+    .app-sidebar,
+    .app-topbar,
+    .alert-dismissible,
+    form,
+    .btn,
+    .no-print {
+        display: none !important;
+    }
+
+    .print-header {
+        display: flex !important;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 2px solid #000;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+    }
+
+    .print-header img {
+        height: 56px;
+    }
+
+    main {
+        padding: 0 !important;
+    }
+
+    .card {
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+    }
+
+    .col-xl-8,
+    .col-xl-4 {
+        width: 100% !important;
+    }
+
+    .table > thead.table-light th {
+        background: #eee !important;
+        color: #000 !important;
+    }
+
+    a {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+}
+
+/* ---------- Sign-in / sign-up pages ---------- */
+.auth-wrapper {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 15%, rgba(var(--ucu-gold-rgb), 0.25), transparent 45%),
+        linear-gradient(160deg, var(--ucu-red) 0%, var(--ucu-red-dark) 55%, var(--ucu-red-darker) 100%);
+}
+
+.auth-card {
+    max-width: 440px;
+    width: 100%;
+}
+
+.auth-card .card {
+    border-top: 5px solid var(--ucu-gold) !important;
+}
+
+.auth-logo {
+    height: 120px;
+    width: auto;
+}
+
+.gold-rule {
+    width: 64px;
+    height: 3px;
+    background-color: var(--ucu-gold);
+    border-radius: 2px;
+}
